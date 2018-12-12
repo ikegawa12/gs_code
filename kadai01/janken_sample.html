@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+<body>
+
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li class='btn' id="gu_btn">グー</li>
+      <li class='btn' id="cho_btn">チョキ</li>
+      <li class='btn' id="par_btn">パー</li>
+    </ul>
+    <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+    <div>勝敗は？ 「<span id="judgement">どっち？</span>」</div>
+  </main>
+
+  <footer></footer>
+  <script>
+
+    $('.btn').click(function () {
+      //human
+      let select = $(this).text();
+      //computer
+      const r = Math.ceil(Math.random() * 3);
+      let view = '';
+      let win = '';
+      if (r == 1) {
+        view = 'グー';
+      } else if (r == 2) {
+        view = 'チョキ';
+      } else {
+        view = 'パー';
+      }
+      //match
+      if (select == view) {
+        win = 'あいこ';
+      } else if ((select == 'グー' && view == 'チョキ') || (select == 'チョキ' && view == 'パー') || (select == 'パー' && view == 'グー')) {
+        win = '勝ち';
+      } else {
+        win = '負け';
+      }
+      $('#pc_hands').html(view);
+      $('#judgement').html(win);
+    });
+
+
+
+
+
+  </script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</body>
+</html>

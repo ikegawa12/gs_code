@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <script src="js/jquery-2.1.3.min.js"></script>
+  <link rel="stylesheet" href="css/sample.css">
+  <title>じゃんけん</title>
+</head>
+<body>
+
+  <header>
+    <h1>じゃんけん</h1>
+  </header>
+
+  <main>
+    <ul>
+      <li id="gu_btn">グー</li>//class
+      <li id="cho_btn">チョキ</li>
+      <li id="par_btn">パー</li>
+    </ul>
+    <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+    <div>勝敗は？ 「<span id="judgement">どっち？</span>」</div>
+  </main>
+
+  <footer></footer>
+  <script>
+    //じゃんけん用のSCRIPTを書いてください
+
+    //グーを出したとき
+    //const gu_btn = document.querySelector('#gu_btn');
+    gu_btn.onclick = function (e) {
+      const r = Math.ceil(Math.random() * 3);
+      let view = '';
+      let win = '';
+      if (r == 1) {
+        view = 'グー';
+        win = 'あいこ'
+      }
+      if (r == 2) {
+        view = 'チョキ';
+        win = '勝ち'
+      }
+      if (r == 3) {
+        view = 'パー';
+        win = '負け'
+      }
+      const pc_hands = document.querySelector('#pc_hands');
+      pc_hands.innerHTML = view;
+      const judgement = document.querySelector('#judgement');
+      judgement.innerHTML = win;
+    }
+
+    //チョキを出したとき
+    const cho_btn = document.querySelector('#cho_btn');
+    cho_btn.onclick = function (e) {
+      const r = Math.ceil(Math.random() * 3);
+      let view = '';
+      let win = '';
+      if (r == 1) {
+        view = 'グー';
+        win = '負け'
+      }
+      if (r == 2) {
+        view = 'チョキ';
+        win = 'あいこ'
+      }
+      if (r == 3) {
+        view = 'パー';
+        win = '勝ち'
+      }
+      const pc_hands = document.querySelector('#pc_hands');
+      pc_hands.innerHTML = view;
+      const judgement = document.querySelector('#judgement');
+      judgement.innerHTML = win;
+    }
+
+    //パーを出したとき
+    const par_btn = document.querySelector('#par_btn');
+    par_btn.onclick = function (e) {
+      const r = Math.ceil(Math.random() * 3);
+      let view = '';
+      let win = '';
+      if (r == 1) {
+        view = 'グー';
+        win = '勝ち'
+      }
+      if (r == 2) {
+        view = 'チョキ';
+        win = '負け'
+      }
+      if (r == 3) {
+        view = 'パー';
+        win = 'あいこ'
+      }
+      const pc_hands = document.querySelector('#pc_hands');
+      pc_hands.innerHTML = view;
+      const judgement = document.querySelector('#judgement');
+      judgement.innerHTML = win;
+    }
+
+  </script>
+</body>
+</html>
